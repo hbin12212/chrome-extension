@@ -1,6 +1,7 @@
-let color = "#3aa757";
+let contextMenuItem = {
+    id: "pming",
+    title: "pming",
+    contexts: ["page"],
+};
 
-chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.sync.set({ color });
-    console.log("Default background color set to %cgreen", `color: ${color}`);
-});
+chrome.contextMenus.create(contextMenuItem);

@@ -3,12 +3,18 @@
     "description": "Made by Hyobin",
     "version": "1.0",
     "manifest_version": 3,
+    "permissions": ["contextMenus", "tabs"],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["./contentScripts/script.js"],
+            "run_at": "document_start"
+        }
+    ],
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "./background.js"
     },
-    "options_page": "options.html",
-    "permissions": ["storage", "activeTab", "scripting"],
-    "action": {
-        "default_popup": "popup.html"
+    "icons": {
+        "16": "./icons/icon.png"
     }
 }
