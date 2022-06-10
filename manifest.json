@@ -3,7 +3,7 @@
     "description": "Made by Hyobin",
     "version": "1.0",
     "manifest_version": 3,
-    "permissions": ["contextMenus", "tabs", "storage"],
+    "permissions": ["contextMenus", "tabs", "storage", "activeTab"],
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
