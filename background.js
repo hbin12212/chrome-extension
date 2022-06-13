@@ -18,7 +18,7 @@ chrome.action.onClicked.addListener((tab) => {
     console.log("복사완료");
 
     //데이터 가져오기
-    chrome.storage.sync.get("bookMark", function (result) {
+    chrome.storage.sync.get("bookMark", (result) => {
         let savedList = [];
         //데이터 있으면
         if (result["bookMark"]) {
@@ -26,7 +26,7 @@ chrome.action.onClicked.addListener((tab) => {
         }
         savedList?.unshift({ thumbnail: "", url: url, preview: preview });
         //데이터 저장
-        chrome.storage.sync.set({ bookMark: savedList }, function () {
+        chrome.storage.sync.set({ bookMark: savedList }, () => {
             console.log("저장완료");
         });
     });
@@ -42,7 +42,7 @@ chrome.contextMenus.onClicked.addListener((tab) => {
         console.log("복사완료");
 
         //데이터 가져오기
-        chrome.storage.sync.get("bookMark", function (result) {
+        chrome.storage.sync.get("bookMark", (result) => {
             let savedList = [];
             //데이터 있으면
             if (result["bookMark"]) {
@@ -50,7 +50,7 @@ chrome.contextMenus.onClicked.addListener((tab) => {
             }
             savedList?.unshift({ thumbnail: "", url: url, preview: preview });
             //데이터 저장
-            chrome.storage.sync.set({ bookMark: savedList }, function () {
+            chrome.storage.sync.set({ bookMark: savedList }, () => {
                 console.log("저장완료");
             });
         });

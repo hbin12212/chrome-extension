@@ -1,14 +1,11 @@
-//저장된 리스트
-let savedList = [];
-
-const getData = () => {
+const getBookMarkData = () => {
     chrome.storage.sync.get("bookMark", function (result) {
         console.log(result["bookMark"]);
-        insertList(result["bookMark"]);
+        insertBookMarkList(result["bookMark"]);
     });
 };
 
-const insertList = (result) => {
+const insertBookMarkList = (result) => {
     let listTemplate = "";
 
     result?.map((it, idx) => {
@@ -19,7 +16,7 @@ const insertList = (result) => {
 </div>`;
     });
 
-    document.getElementById("listData").insertAdjacentHTML("afterbegin", listTemplate);
+    document.getElementById("pming_bookmark_data").insertAdjacentHTML("afterbegin", listTemplate);
 };
 
-getData();
+getBookMarkData();
