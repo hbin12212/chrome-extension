@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/*global chrome*/
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React, { useState, useEffect } from "react";
+import "./App.css";
+
+const App = () => {
+    const [bookMarkList, setBookMarkList] = useState([]);
+
+    useEffect(() => {
+        getBookMarkData();
+    }, []);
+
+    const getBookMarkData = () => {
+        //@ts-ignore
+        chrome.storage.sync.get("bookMark", function (result: any) {
+            console.log(result["bookMark"]);
+            setBookMarkList(result["bookMark"]);
+        });
+    };
+    return (
+        <div className="pming-App">
+            {bookMarkList?.map((it: { url: string; preview: string }, idx: number) => (
+                <div className="pming-bookmark-data" id={`pming-bookmark-${idx}`}>
+                    <div>{it?.url}</div>
+                    <div>{it?.preview}</div>
+                </div>
+            ))}
+        </div>
+    );
+};
 
 export default App;
