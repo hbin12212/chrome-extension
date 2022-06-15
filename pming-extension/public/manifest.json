@@ -1,20 +1,13 @@
 {
-    "name": "Pming Extension",
-    "description": "Made by Hyobin",
+    "name": "Chrome React SEO Extension",
+    "description": "The power of React and TypeScript for building interactive Chrome extensions",
     "version": "1.0",
     "manifest_version": 3,
-    "permissions": ["contextMenus", "tabs", "storage", "activeTab", "topSites", "history"],
     "action": {
-        "default_title": "pming",
-        "default_icon": "icon16.png"
-    },
-    "background": {
-        "service_worker": "./background.js"
+        "default_popup": "index.html",
+        "default_title": "Open the popup"
     },
     "icons": {
         "16": "icon16.png"
-    },
-    "chrome_url_overrides": {
-        "newtab": "./index.html"
     }
 }
