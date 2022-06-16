@@ -23,7 +23,7 @@ const TopSites = () => {
             <div>
                 {topSitesList?.map((it: { url: string; title: string }, idx: number) => (
                     <div className="pming-topsites-data" id={`pming-topsites-${idx}`}>
-                        <div>{it?.url}</div>
+                        <img src={`https://www.google.com/s2/favicons?sz=24&domain=${it?.url}`} />
                         <div>{it?.title}</div>
                     </div>
                 ))}
