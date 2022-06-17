@@ -1,6 +1,7 @@
 /*global chrome*/
 
 import React, { useState, useEffect } from "react";
+import { Link } from "react-chrome-extension-router";
 import "./TopSites.css";
 
 const TopSites = () => {
@@ -20,11 +21,13 @@ const TopSites = () => {
 
     return (
         <div className="pming-TopSites">
-            <div>
+            <div className="pming-topsites-wrapper">
                 {topSitesList?.map((it: { url: string; title: string }, idx: number) => (
                     <div className="pming-topsites-data" id={`pming-topsites-${idx}`}>
-                        <img src={`https://www.google.com/s2/favicons?sz=24&domain=${it?.url}`} />
-                        <div>{it?.title}</div>
+                        <a href={`${it?.url}`}>
+                            <img src={`https://www.google.com/s2/favicons?sz=24&domain=${it?.url}`} />
+                            <div>{it?.title}</div>
+                        </a>
                     </div>
                 ))}
             </div>

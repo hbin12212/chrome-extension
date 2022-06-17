@@ -1,5 +1,15 @@
 .pming-TopSites {
-    width: 80%;
+    padding: 20px 20px;
+    margin-top: 150px;
+}
+
+.pming-topsites-wrapper {
     display: flex;
     justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+}
+
+.pming-topsites-data {
+    margin: 15px 15px;
 }
