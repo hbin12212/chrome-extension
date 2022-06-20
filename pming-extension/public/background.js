@@ -58,3 +58,26 @@ chrome.contextMenus.onClicked.addListener((tab) => {
         });
     });
 });
+
+chrome.bookmarks.onCreated.addListener((id, changeInfo) => {
+    console.log("추가");
+    console.log(id);
+    console.log(changeInfo);
+});
+
+chrome.bookmarks.onChanged.addListener((id, changeInfo) => {
+    console.log("수정");
+    console.log(id);
+    console.log(changeInfo);
+});
+
+chrome.bookmarks.onRemoved.addListener((id, removeInfo) => {
+    console.log("삭제");
+    console.log(id);
+    console.log(removeInfo);
+});
+chrome.bookmarks.onMoved.addListener((id, moveInfo) => {
+    console.log("이동");
+    console.log(id);
+    console.log(moveInfo);
+});

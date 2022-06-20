@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
 import BookMark from "./pages/BookMark";
 import TopSites from "./pages/TopSites";
+import UserBookMark from "./pages/UserBookMark";
 import "./App.css";
 
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
         <div className="pming-App">
             <BookMark />
             <TopSites />
+            <UserBookMark />
         </div>
     );
 };
